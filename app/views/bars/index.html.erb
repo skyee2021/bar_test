@@ -1,0 +1,42 @@
+<%# if session[:thankyou9527] %>
+<%# 有的話就是登入狀態 %>
+<% if user_signed_in? %>
+  <%= current_user.email %> |
+  <%= link_to '登出', sign_out_sessions_path, method: 'delete' %>
+<% else %>
+  <%= link_to '註冊', sign_up_users_path %> |
+  <%= link_to '登入', sign_in_sessions_path %>
+<% end %>
+
+
+
+
+<h1>小酒館列表</h1>
+
+<%= link_to "新增小酒館", new_bar_path %>
+
+<table>
+  <thead>
+    <tr>
+      <td>名稱</td>
+      <td>電話</td>
+      <td>地址</td>
+    
+    </tr>
+  </thead>
+  <tbody>
+    <% @bars.each do |bar| %>
+    <tr>
+      
+      <td><%= link_to bar.name, bar_path(bar.id) %></td>
+      <td><%#= bar.name %></td>
+      <td><%= bar.tel %></td>
+      <td><%= bar.address %></td>
+      <td>
+        <%= link_to "edit", edit_bar_path(bar) %>
+        <%= link_to "刪除", bar_path(bar), method: "delete", data: { confirm: "確認刪除" } %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

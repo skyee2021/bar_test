@@ -1,0 +1,14 @@
+<%= form_for(bar) do |b| %>
+  <%= b.label :name, "名稱" %>
+  <%= b.text_field :name %> <br />
+
+  <%= b.label :tel, "電話" %>
+  <%= b.text_field :tel %> <br />
+
+  <%= b.label :address, "地址" %>
+  <%= b.text_field :address %> <br />
+
+ 
+
+  <%= b.submit %>
+<% end %>

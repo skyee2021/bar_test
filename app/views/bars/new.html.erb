@@ -1,0 +1,18 @@
+<h1>新增小酒館</h1>
+
+<%= form_for(Bar.new) do |b| %>
+  <%= b.label :name, "名稱" %>
+  <%= b.text_field :name %> <br />
+
+  <%= b.label :tel, "電話" %>
+  <%= b.text_field :tel %> <br />
+
+  <%= b.label :address, "地址" %>
+  <%= b.text_field :address %> <br />
+
+
+  <%= b.submit %>
+<% end %>
+
+<br />
+<%= link_to "回列表", bars_path %>
