@@ -24,11 +24,11 @@ end
 #   find_by(email: email, password: encrypted_password)
 # end
 # ==============因為下面搬到模組所以呼叫要改為呼叫模組
-private
-def encrypt_password
-  salted_pwd = Hasher.salted(password)
-  self.password = Hasher.encrypt(salted_pwd)
-end
+# private
+# def encrypt_password
+#   salted_pwd = Hasher.salted(password)
+#   self.password = Hasher.encrypt(salted_pwd)
+# end
 # ==============因為下面搬到模組所以呼叫要改為呼叫模組
 
 # ================================================================
