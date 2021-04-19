@@ -1,7 +1,13 @@
 class Bar < ApplicationRecord
 
-  validates :name, presence: true
+  # acts_as_paranoid
+  # #軟刪除的套件
 
+
+  validates :name, presence: true
+  belongs_to :user #預測為必填，optional: false
+  # belongs_to :user, optional: true
+                      #選填
   # def self.available
   #   where(deleted_at: nil)
   # end

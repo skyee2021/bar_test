@@ -4,8 +4,12 @@ module Hasher
     Digest::SHA1.hexdigest(password)
   end
 
-  def self.salted(password)
-    "123#{password}xx"
+  # def self.salted(password)
+  #   "123#{password}xx"
+  # end
+
+  def self.salted(password, head = "123", tail = "xx")
+    "#{head}#{password}#{tail}"
   end
 end
 
@@ -39,6 +43,9 @@ class User < ApplicationRecord
 
 #在建立資料save前做驗證
 before_create :encrypt_password
+
+# =0419關聯===============================================================
+has_many :bars
 
 # ==============因為下面搬到模組所以呼叫要改為呼叫模組
 def self.login(params)
