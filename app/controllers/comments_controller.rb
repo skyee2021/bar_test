@@ -8,9 +8,11 @@ class CommentsController < ApplicationController
                                 # 往下搬到private:comment_params
 
     if @comment.save 
-      redirect_to bar_path(@bar)
+      # redirect_to bar_path(@bar)
       # redirect_to @bar  # 餐廳的show(只有show才有的簡寫)
-
+      
+      #沒東西的話會找同名的view
+      #rails特殊功能
     else
       render 'bars/show'
     end

@@ -17,6 +17,7 @@ class BarsController < ApplicationController
     # @comment2 = @bar.comments.new #在指定餐廳下留言
     @comment = @bar.comments.new
     @comments = @bar.comments.order(id: :desc) #該餐廳的留言(排序是最新的在上面)
+    #變數取名叫comments以示區別（複數的留言）
   end
 
   # def new

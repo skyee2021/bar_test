@@ -1,3 +1,8 @@
+<i class="fas fa-user-astronaut"></i>
+<i class="fas fa-heart"></i>
+<i class="fas fa-rocket"></i>
+
+
 <%# if session[:thankyou9527] %>
 <%# 有的話就是登入狀態 %>
 <% if user_signed_in? %>
@@ -18,15 +23,15 @@
 
 
 <ul>
-<% @bars.each do |bar| %>
-                  <%#為什麼要用bar?%>
+<% @bars.each do |b| %>
+                  <%#這個慣例使用單數體bar，增加可讀性%>
   <li>
-    <%= link_to bar.name, bar_path(bar) %>
-    <%= bar.tel %>
-    <%= bar.address %>
-    <%= link_to '編輯', edit_bar_path(bar) %>
+    <%= link_to b.name, bar_path(b) %>
+    <%= b.tel %>
+    <%= b.address %>
+    <%= link_to '編輯', edit_bar_path(b) %>
     <%= link_to '刪除',
-                bar_path(bar),
+                bar_path(b),
                 method: 'delete',
                 data: { confirm: '確定嗎' } %>
   </li>

@@ -2,8 +2,10 @@
 
 
 <h3>留言</h3>
+
+
 POST /comments
-<%= form_for(@comment, url: bar_comments_path(@bar)) do |form| %>
+<%= form_for(@comment, url: bar_comments_path(@bar), remote: true) do |form| %>
   <div class="fields">
     <%= form.label :content, '留言內容' %>
     <%= form.text_area :content %>
@@ -12,6 +14,7 @@ POST /comments
 <% end %>
 
 <%# 秀出餐廳的留言%>
+<ul id="comment_area">
 <% @comments.each do |comment| %>
   <li><%= comment.content %></li>
 <% end %>
