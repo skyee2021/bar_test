@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_19_061439) do
+ActiveRecord::Schema.define(version: 2021_04_23_041601) do
 
   create_table "bars", force: :cascade do |t|
     t.string "name"
@@ -26,6 +26,18 @@ ActiveRecord::Schema.define(version: 2021_04_19_061439) do
     t.index ["user_id"], name: "index_bars_on_user_id"
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.integer "bar_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "deleted_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["bar_id"], name: "index_comments_on_bar_id"
+    t.index ["deleted_at"], name: "index_comments_on_deleted_at"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "password"
@@ -35,4 +47,6 @@ ActiveRecord::Schema.define(version: 2021_04_19_061439) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "comments", "bars"
+  add_foreign_key "comments", "users"
 end

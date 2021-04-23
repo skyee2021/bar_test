@@ -3,7 +3,8 @@ class Bar < ApplicationRecord
   # acts_as_paranoid
   # #軟刪除的套件
 
-
+  
+  
   validates :name, presence: true
   belongs_to :user #預測為必填，optional: false
   # belongs_to :user, optional: true
@@ -11,6 +12,9 @@ class Bar < ApplicationRecord
   # def self.available
   #   where(deleted_at: nil)
   # end
+  
+  #0423看留言
+  has_many :comments
 
   def self.deleted
     unscope(:where).where(deleted_at: nil)

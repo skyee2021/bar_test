@@ -18,6 +18,11 @@ Rails.application.routes.draw do
   
   
   
-  resources :bars
+  resources :bars do
+    resources :comments, shallow: true, only: [:create, :destroy] #代替下面兩行
+    # resources :comments, only: [:index, :new, :create]
+  end
+  # resources :comments, except: [:index, :new, :create]
+  #在外測做編輯（網址就不會秀出餐廳）
   root 'bars#index'
 end

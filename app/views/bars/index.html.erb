@@ -19,6 +19,7 @@
 
 <ul>
 <% @bars.each do |bar| %>
+                  <%#為什麼要用bar?%>
   <li>
     <%= link_to bar.name, bar_path(bar) %>
     <%= bar.tel %>

@@ -13,5 +13,5 @@ Turbolinks.start()
 ActiveStorage.start()
 
 
-import '../frontend'
-import '../styles'
+// import '../frontend'
+// import '../styles'

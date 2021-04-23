@@ -11,6 +11,12 @@ class BarsController < ApplicationController
 
   def show
     @bar = Bar.find(params[:id])
+    #做出留言(0423)
+    # @comment = Comment.new
+    # @comment1 = Comment.new #全新留言
+    # @comment2 = @bar.comments.new #在指定餐廳下留言
+    @comment = @bar.comments.new
+    @comments = @bar.comments.order(id: :desc) #該餐廳的留言(排序是最新的在上面)
   end
 
   # def new

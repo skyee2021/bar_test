@@ -1,0 +1,17 @@
+<h1><%= @bar.name %></h1>
+
+
+<h3>留言</h3>
+POST /comments
+<%= form_for(@comment, url: bar_comments_path(@bar)) do |form| %>
+  <div class="fields">
+    <%= form.label :content, '留言內容' %>
+    <%= form.text_area :content %>
+  </div>
+  <%= form.submit %>
+<% end %>
+
+<%# 秀出餐廳的留言%>
+<% @comments.each do |comment| %>
+  <li><%= comment.content %></li>
+<% end %>
