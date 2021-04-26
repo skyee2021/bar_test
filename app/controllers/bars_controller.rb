@@ -3,6 +3,8 @@ class BarsController < ApplicationController
 
   before_action :check_user!, except: [:index, :show]
 
+  
+
   def index
     # @bars = Bar.new
     # @bars = Bar.available
@@ -18,6 +20,10 @@ class BarsController < ApplicationController
     @comment = @bar.comments.new
     @comments = @bar.comments.order(id: :desc) #該餐廳的留言(排序是最新的在上面)
     #變數取名叫comments以示區別（複數的留言）
+  end
+
+  def pocket_list
+    render html: params
   end
 
   # def new

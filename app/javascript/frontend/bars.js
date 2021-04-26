@@ -8,6 +8,7 @@ document.addEventListener('DOMContent', () =>{
     let ax = axios.create()
     likeBtn.addEventListener('click',() =>{
       console.log(123);
+      
 
     })
   }
