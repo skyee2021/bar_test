@@ -23,7 +23,21 @@ class BarsController < ApplicationController
   end
 
   def pocket_list
-    render html: params
+    @bar = Bar.find(params[:id])
+
+    if(current_user.pocket_list.exists?(@bar.id)) 
+      # if current_user.like?
+      #已在名單中，移除（按讚再按一次移除）
+      current_user.pocket_list.destroy(@bar)
+      render json: {id: @bar.id, status: 'removed'}
+    else
+      current_user.pocket_list << @bar #餐廳找到後放入口袋名單
+      render json: {id: @bar.id, status: 'added'}
+    end
+    
+    # current_user.pocket_list = [@bar] #等同上面，可以寫多個，上面只能寫一個
+    # render html: params
+    # render json: params
   end
 
   # def new

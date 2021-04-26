@@ -23,7 +23,8 @@ ActiveStorage.start()
 // dom.watch()
 
 
-// import 'icon/fontawesome'
+// import '../icon/fontawesome'
 // import '../styles/frontend/form.scss'
 import '../styles'
 import '../styles/frontend/common.scss'
+import '../frontend/bars'

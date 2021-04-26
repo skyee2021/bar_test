@@ -15,6 +15,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def like?(b)
+    # if pocket_list.exist?(b.id)
+    #   return true
+    # else
+    #   return false
+    # end
+    pocket_list.exist?(b.id)
+  end
+
   private
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation)
