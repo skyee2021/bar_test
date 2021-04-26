@@ -16,6 +16,9 @@ class Bar < ApplicationRecord
   #0423看留言
   has_many :comments
 
+  has_many :favorite_bars
+  has_many :likers, through: :favorite_bars, source: :user
+
   def self.deleted
     unscope(:where).where(deleted_at: nil)
     #因為預設是where nil，所以要先拿掉預設才查得到

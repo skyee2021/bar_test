@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_23_041601) do
+ActiveRecord::Schema.define(version: 2021_04_26_032036) do
 
   create_table "bars", force: :cascade do |t|
     t.string "name"
@@ -38,6 +38,16 @@ ActiveRecord::Schema.define(version: 2021_04_23_041601) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "favorite_bars", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "bar_id", null: false
+    t.text "note"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["bar_id"], name: "index_favorite_bars_on_bar_id"
+    t.index ["user_id"], name: "index_favorite_bars_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "password"
@@ -49,4 +59,6 @@ ActiveRecord::Schema.define(version: 2021_04_23_041601) do
 
   add_foreign_key "comments", "bars"
   add_foreign_key "comments", "users"
+  add_foreign_key "favorite_bars", "bars"
+  add_foreign_key "favorite_bars", "users"
 end

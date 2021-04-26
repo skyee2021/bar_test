@@ -15,10 +15,15 @@ Rails.application.routes.draw do
       delete :sign_out, action: 'destroy' #登出
     end
   end 
+
+
   
   
   
   resources :bars do
+    member do
+      post :pocket_list #bars#pocket_list
+    end
     resources :comments, shallow: true, only: [:create, :destroy] #代替下面兩行
     # resources :comments, only: [:index, :new, :create]
   end

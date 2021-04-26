@@ -44,8 +44,17 @@ class User < ApplicationRecord
 #在建立資料save前做驗證
 before_create :encrypt_password
 
-# =0419關聯===============================================================
-has_many :bars
+# =0419關聯============================0426==========================
+# has_many :bars  透過第三方表格換成下面favorite_bars
+has_many :favorite_bars
+has_many :bars #owener
+# has_many :bars, through: :favorite_bars
+# has_many :hellos, class_name: 'FavoriteBar'  #定義一個方法表格
+# has_many :favorite_bars, through: :hellos, 
+#                          source: :bar
+has_many :pocket_list, through: :favorite_bars, source: :bar
+          #取名表格，透過favorite表格，來源是bar資料庫
+has_many :comments
 
 # ==============因為下面搬到模組所以呼叫要改為呼叫模組
 def self.login(params)

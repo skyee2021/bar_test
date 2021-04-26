@@ -26,3 +26,4 @@ ActiveStorage.start()
 import 'icon/fontawesome'
 import '../styles/frontend/form.scss'
 import '../styles'
+import '../styles/frontend/common.scss'
