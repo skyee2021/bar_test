@@ -1,31 +1,7 @@
 <h1>新增小酒館</h1>
 
-<%= form_for(Bar.new) do |b| %>
-<% if @bar.errors.any? %>
-    <ul>
-      <% @bar.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  <% end %>
+<%= render "form", bar: @bar %>
 
-  <div class="field">
-  <%= b.label :name, "名稱" %>
-  <%= b.text_field :name %> <br />
-  </div>
-
-  <div class="field">
-  <%= b.label :tel, "電話" %>
-  <%= b.text_field :tel %> <br />
-  </div>
-
-  <div class="field">
-  <%= b.label :address, "地址" %>
-  <%= b.text_field :address %> <br />
-  </div>
-
-  <%= b.submit %>
-<% end %>
 
 <br />
-<%= link_to "回列表", bars_path %>
+<%= link_to '回列表', bars_path %>
