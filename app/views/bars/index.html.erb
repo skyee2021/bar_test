@@ -17,9 +17,7 @@
 
 
 
-<h1>小酒館列表</h1>
-
-
+<h1 class="">小酒館列表</h1>
 
 
 
@@ -28,6 +26,12 @@
                   <%#這個慣例使用單數體bar，增加可讀性%>
   <li>
     <%= link_to b.name, bar_path(b) %>
+    (
+      <%= b.user.email%>
+      <%# 嗅出小酒館的主人 %>  
+      <i class="fas fa-heart"></i>
+      <%= b.likers.count%>
+    )
     <%= b.tel %>
     <%= b.address %>
     <%= link_to '編輯', edit_bar_path(b) %>

@@ -2,7 +2,7 @@
 // import { defaults } from 'autoprefixer'
 import axios from 'axios'
 
-console.log('333');
+// console.log('333');
 
 document.addEventListener('DOMContentLoaded', () =>{
   // console.log(123);

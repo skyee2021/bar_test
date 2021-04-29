@@ -1,8 +1,14 @@
-<h1><%= @bar.name %></h1>
-<i class="fas fa-rocket"></i>
-<div id='like-btn' data-id='<%= @bar.id %>' class="like-btn"></div>
 
+  <h1 data-controller="hello"><%= @bar.name %>
+  <i class="fas fa-rocket"></i>
+  <div id='like-btn' data-action='click->hello#add hey->hello#close'
+                                                  <%# 客製化事件 %>
+                    data-hello-target='btn'
+                    data-id='<%= @bar.id %>' 
+                    class="like-btn"></div>
 
+  <i class="fas fa-thumbs-up"></i>
+  </h1>
 <h3>留言</h3>
 
 

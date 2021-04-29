@@ -2,13 +2,16 @@ class BarsController < ApplicationController
   before_action :find_bar, only: [:show, :edit, :update, :destroy]
 
   before_action :check_user!, except: [:index, :show]
+  # before_action :check_user!, except: [:index]
 
   
 
   def index
     # @bars = Bar.new
     # @bars = Bar.available
-    @bars = Bar.all
+    # @bars = Bar.all
+    @bars = Bar.all.includes(:user)
+    # 同時撈使用者資料（只撈一次，節省效能4/29
   end
 
   def show
@@ -78,6 +81,7 @@ class BarsController < ApplicationController
     # @bar = Bar.find_by(id: params[:id])
     # byebug
     if @bar.update(bars_params)
+      flash[:abc]='good'
       redirect_to bars_path, notice: "更新成功"
     else
       render :edit
@@ -92,7 +96,7 @@ class BarsController < ApplicationController
     # #在上層定義一個destroy假刪除
     # redirect_to bars_path, notice: "已刪除"
     @bar.destroy
-    redirect_to bars_path
+    redirect_to bars_path, notice: "刪刪"
   end
   
   private
@@ -114,7 +118,8 @@ class BarsController < ApplicationController
     # )
 
     # 2
-    @bar = current_user.bars.find(params[:id])
+    @bar = Bar.find(params[:id])
+    # @bar = current_user.bars.find(params[:id])
   end
 
   def bars_params
