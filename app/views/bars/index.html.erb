@@ -18,30 +18,37 @@
 
 
 <h1 class="">小酒館列表</h1>
-
-
-
-<ul>
-<% @bars.each do |b| %>
-                  <%#這個慣例使用單數體bar，增加可讀性%>
-  <li>
-    <%= link_to b.name, bar_path(b) %>
-    (
-      <%= b.user.email%>
-      <%# 嗅出小酒館的主人 %>  
-      <i class="fas fa-heart"></i>
-      <%= b.likers.count%>
-    )
-    <%= b.tel %>
-    <%= b.address %>
-    <%= link_to '編輯', edit_bar_path(b) %>
-    <%= link_to '刪除',
-                bar_path(b),
-                method: 'delete',
-                data: { confirm: '確定嗎' } %>
-  </li>
-  
-<% end %>
-</ul>
-
 <%= link_to '新增小酒館', new_bar_path %>
+<table class="table">
+  <thead>
+    <tr class="bg-warning">
+      <td>名稱</td>
+      <td>店主</td>
+      <td>按讚數</td>
+      <td>電話</td>
+      <td>地址</td>
+      <td>處理</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <% @bars.each do |b| %>
+      <td><%= link_to b.name, bar_path(b) %></td>
+      <td><%= b.user.email%></td>
+      <td>
+        <i class="fas fa-heart"></i>
+        <%= b.likers.count%>
+      </td>
+      <td><%= b.tel %></td>
+      <td><%= b.address %></td>
+      <td>
+        <%= link_to '編輯', edit_bar_path(b) %>
+        <%= link_to '刪除', bar_path(b), method: 'delete', data: { confirm: '確定嗎' } %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+

@@ -11,9 +11,11 @@
   </head>
 
   <body>
-    <%# <%= nav[:nav] %> %>
-    <%= flash[:abc] %>
-    <%= notice %>
-    <%= yield %>
+    <div class="container">
+      <%= render 'shared/flash' %>
+      <%= flash[:ttt] %>
+      <%= notice %>
+      <%= yield %>
+    </div>
   </body>
 </html>

@@ -8,7 +8,7 @@
 // </div>
 
 import { Controller } from "stimulus"
-// import Rails from "@rails/ujs"
+import Rails from "@rails/ujs"
 
 export default class extends Controller {
   static targets = [ "btn" ]
@@ -16,17 +16,18 @@ export default class extends Controller {
 
   // addToggle(id) {
   //   Rails.ajax({
-  //     res => {
-  //       console.log(res.data)
+  //     url: `/bars/${id}/pocket_list`,
+  //     type: 'post', eventsuccess: res =>{
   //       if (res.data.status == 'added') {
   //         // console.log('added')
   //         console.log(btn.classList)
-  //         btn.classList.add('like')
+  //         this.btn.classList.add('like')
   //       }else{
   //         console.log(btn.classList)
-  //         btn.classList.remove('like')
+  //         this.btn.classList.remove('like')
   //       } 
   //     }
+      
 
   //   })
   // }

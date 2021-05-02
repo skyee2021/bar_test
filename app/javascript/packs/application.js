@@ -9,6 +9,7 @@ Turbolinks.start()
 ActiveStorage.start()
 
 
+
 // import '../frontend'
 // import '../styles'
 

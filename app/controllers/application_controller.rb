@@ -5,7 +5,13 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :user_signed_in?
   #讓view helper也可以取用
 
+  before_action :ttt
+
   private
+    def ttt
+      flash[:notice]='welcome'
+    end
+
     def not_found
       render file: "#{Rails.root}/public/404.html",
              status: 404

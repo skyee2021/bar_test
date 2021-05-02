@@ -3,10 +3,16 @@ import {
   faUserAstronaut,
   faHeart,
   faRocket,
-  faThumbsUp
+  
+  faTimes
   
 
 } from '@fortawesome/free-solid-svg-icons'
+
+import {
+  faThumbsUp,
+  faTimesCircle
+} from '@fortawesome/free-regular-svg-icons'
 
 
 
@@ -14,7 +20,9 @@ library.add(
   faUserAstronaut,
   faHeart,
   faRocket,
-  faThumbsUp
+  faThumbsUp,
+  faTimes,
+  faTimesCircle
 )
 
 dom.watch()
